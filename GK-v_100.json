@@ -1,0 +1,54 @@
+{
+    "taskDefinition": {
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:194199306333:task-definition/app:15",
+        "cpu": "256",
+        "volumes": [],
+        "networkMode": "awsvpc",
+        "compatibilities": [
+            "EC2",
+            "FARGATE"
+        ],
+        "requiresAttributes": [
+            {
+                "name": "ecs.capability.execution-role-ecr-pull"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+            },
+            {
+                "name": "ecs.capability.task-eni"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.ecr-auth"
+            }
+        ],
+        "family": "app",
+        "containerDefinitions": [
+            {
+                "environment": [],
+                "volumesFrom": [],
+                "essential": true,
+                "portMappings": [
+                    {
+                        "hostPort": 80,
+                        "containerPort": 80,
+                        "protocol": "tcp"
+                    }
+                ],
+                "cpu": 256,
+                "memory": 512,
+                "name": "app",
+                "image": "194199306333.dkr.ecr.ap-southeast-1.amazonaws.com/friendlyhello",
+                "mountPoints": []
+            }
+        ],
+        "executionRoleArn": "arn:aws:iam::194199306333:role/ecs_task_assume",
+        "placementConstraints": [],
+        "memory": "512",
+        "status": "ACTIVE",
+        "revision": 15
+    }
+}

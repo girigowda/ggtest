@@ -1,0 +1,68 @@
+{
+    "taskDefinition": {
+        "volumes": [],
+        "requiresAttributes": [
+            {
+                "name": "ecs.capability.execution-role-ecr-pull"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+            },
+            {
+                "name": "ecs.capability.task-eni"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.ecr-auth"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.task-iam-role"
+            },
+            {
+                "name": "ecs.capability.execution-role-awslogs"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+            },
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+            }
+        ],
+        "executionRoleArn": "arn:aws:iam::194199306333:role/ecsTaskExecutionRole",
+        "revision": 1,
+        "family": "ggtesttask",
+        "containerDefinitions": [
+            {
+                "mountPoints": [],
+                "essential": true,
+                "volumesFrom": [],
+                "name": "php-hello-world",
+                "cpu": 0,
+                "logConfiguration": {
+                    "options": {
+                        "awslogs-region": "ap-southeast-1",
+                        "awslogs-stream-prefix": "ecs",
+                        "awslogs-group": "/ecs/ggtesttask"
+                    },
+                    "logDriver": "awslogs"
+                },
+                "portMappings": [],
+                "environment": [],
+                "image": "194199306333.dkr.ecr.ap-southeast-1.amazonaws.com/php-hello-world"
+            }
+        ],
+        "networkMode": "awsvpc",
+        "memory": "2048",
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "taskRoleArn": "arn:aws:iam::194199306333:role/ecsTaskExecutionRole",
+        "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:194199306333:task-definition/ggtesttask:1",
+        "status": "ACTIVE",
+        "placementConstraints": [],
+        "cpu": "1024",
+        "compatibilities": [
+            "EC2",
+            "FARGATE"
+        ]
+    }
+}
